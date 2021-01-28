@@ -6,13 +6,17 @@ import {configureStore, createAction, createReducer, createSlice} from "@reduxjs
 
 
 //actionCreater
+
+//createAction의 반환값은 type:add,payload:undefined
 const addToDo = createAction("ADD");
 const deleteToDo =createAction("DELETE");
 
 
+
+
 //reducer
 const reducer = createReducer([],{
-    [addToDo] : (state, action)=>{
+    [addToDo] : (state, action)=>{//mutate해도 상관이 없어진다.
         state.push({text:action.payload,id:Date.now()})
     },
     [deleteToDo] : (state, action)=>{
